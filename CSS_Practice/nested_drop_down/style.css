@@ -1,0 +1,79 @@
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+}
+
+.dropdown hr {
+  background-color: #e5e5e5;
+  border: 0;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.dropdown > li {
+  display: block;
+  padding: 0px 22px;
+  clear: both;
+  color: #333;
+  height: 48px;
+  line-height: 48px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.dropdown > li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.dropdown-submenu {
+  position: relative;
+  background: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23888" d="M10,17L15,12L10,7V17Z"></path></svg>')
+    97% / 24px no-repeat;
+}
+.dropdown-submenu .dropdown {
+  top: 0px;
+  left: 100%;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s;
+}
+.dropdown-submenu:hover > .dropdown {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Dropdown CSS End */
+
+.parent:active,
+.parent:focus-within > .dropdown,
+open.dropdown {
+  display: block;
+  position: relative;
+}
+.menu {
+  height: 40px;
+  width: 100px;
+  background: #eee;
+  line-height: 40px;
+  text-align: center;
+  outline: 0;
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 1px rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.parent {
+  margin: 60px;
+  font-family: "Roboto", sans-serif;
+}

@@ -1,0 +1,68 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.button-bar {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.5rem 2rem;
+}
+
+.step-button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 15px;
+  border: none;
+  background-color: rgb(99, 117, 235);
+
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.steps-sections {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+
+  padding: 0.5rem 2rem;
+}
+
+.step-section {
+  display: none;
+}
+
+/* .step-section:nth-child(1) {
+  display: block;
+} */
+
+.step-section p {
+  font-size: 24px;
+  font-weight: bold;
+}

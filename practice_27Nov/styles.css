@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+}
+
+nav {
+    color: white;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+}
+
+nav > ul {
+ display: flex;
+ flex-direction: row;
+ gap: 2em;
+ list-style: none;
+ justify-content: center;
+ align-items: center;
+}
+
+nav > ul > li {
+    padding: 6px;
+    font-size: 20px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}

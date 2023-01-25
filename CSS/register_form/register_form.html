@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./register_form.css" />
+    <script src="./register_form.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- button bar -->
+
+      <div class="button_bar">
+        <div>
+          <button class="step_button step_button_active">Customer Info</button>
+        </div>
+        <div>
+          <button class="step_button">Business Details</button>
+        </div>
+        <div>
+          <button class="step_button">Bank Details</button>
+        </div>
+        <div>
+          <button class="step_button">Other Documents</button>
+        </div>
+        <div>
+          <button class="step_button">Consent</button>
+        </div>
+      </div>
+
+      <!-- progress-bar  -->
+      <div class="progressbar">
+        <div class="progress" id="progress"></div>
+
+        <div
+          class="progress-step progress-step-active"
+          data-title="Customer Info"
+        ></div>
+        <div class="progress-step" data-title="Business Details"></div>
+        <div class="progress-step" data-title="Bank Details"></div>
+        <div class="progress-step" data-title="Other Documents"></div>
+        <div class="progress-step" data-title="Consent"></div>
+      </div>
+
+      <div class="phone-box-modal">
+        <div class="phone-overlay"></div>
+        <div class="phone-body-modal">
+          <div class="phone-inner-body-modal">
+            <div class="title">Verify Phone</div>
+
+            <form action="">
+              <input
+                class="otp"
+                type="text"
+                oninput="digitValidate(this)"
+                onkeyup="tabChange(1)"
+                maxlength="1"
+              />
+              <input
+                class="otp"
+                type="text"
+                oninput="digitValidate(this)"
+                onkeyup="tabChange(2)"
+                maxlength="1"
+              />
+              <input
+                class="otp"
+                type="text"
+                oninput="digitValidate(this)"
+                onkeyup="tabChange(3)"
+                maxlength="1"
+              />
+              <input
+                class="otp"
+                type="text"
+                oninput="digitValidate(this)"
+                onkeyup="tabChange(4)"
+                maxlength="1"
+              />
+            </form>
+            <hr />
+            <button class="btn customBtnPhone">Verify</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="email-box-modal">
+        <div class="email-overlay"></div>
+        <div class="email-body-modal">
+          <div class="email-inner-body-modal">
+            <div class="title">Verify Email</div>
+
+            <form action="">
+              <input
+                class="otp"
+                type="text"
+                oninput="digitValidate(this)"
+                onkeyup="tabChange(1)"
+                maxlength="1"
+              />
+              <input
+                class="otp"
+                type="text"
+                oninput="digitValidate(this)"
+                onkeyup="tabChange(2)"
+                maxlength="1"
+              />
+              <input
+                class="otp"
+                type="text"
+                oninput="digitValidate(this)"
+                onkeyup="tabChange(3)"
+                maxlength="1"
+              />
+              <input
+                class="otp"
+                type="text"
+                oninput="digitValidate(this)"
+                onkeyup="tabChange(4)"
+                maxlength="1"
+              />
+            </form>
+            <hr />
+            <button class="btn customBtnEmail">Verify</button>
+          </div>
+        </div>
+      </div>
+
+      <form action="#" class="form-step form-step-active">
+        <!-- steps -->
+
+        <div class="form-content">
+          <div class="input-group">
+            <label for="contact_person_name">
+              Contact Person Name
+              <strong style="color: red">*</strong>
+            </label>
+            <input
+              type="text"
+              id="contact_person_name"
+              class="form-control"
+              placeholder="Name"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="contact_person_mobile"
+              >Contact Person Mobile
+              <strong style="color: red">*</strong></label
+            >
+            <div class="verify_field">
+              <input
+                id="contact_person_mobile"
+                type="tel"
+                class="form-control"
+                placeholder="Mobile"
+                required
+              />
+              <button type="button" class="verify-phone">Verify</button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="contact_person_email"
+              >Email <strong style="color: red">*</strong></label
+            >
+            <div class="verify_field">
+              <input
+                id="contact_person_email"
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                required
+              />
+              <button type="button" class="verify-email">Verify</button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Password <strong style="color: red">*</strong></label>
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label
+              >Communication Address
+              <strong style="color: red">*</strong></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Address"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Entity Type <strong style="color: red">*</strong></label>
+            <select
+              style="
+                outline: none;
+                border: 1px solid rgb(214, 214, 214);
+                border-radius: 2px;
+              "
+              name="entity_type"
+              id="entity_type"
+              class="entity-type-select"
+              onchange="changedEntity()"
+            >
+              <option
+                value="0"
+                label="Choose Entity type"
+                selected="selected"
+                style="color: #ccc"
+              >
+                Choose Entity
+              </option>
+              <option value="Proprietor" label="Proprietor">Proprietor</option>
+              <option value="Partnership" label="Partnership">
+                Partnership
+              </option>
+              <option value="LLP" label="LLP">LLP</option>
+              <option value="Limited" label="Limited">Limited</option>
+              <option value="Private Limited" label="Private Limited">
+                Private Limited
+              </option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label class="d-block"
+              >Are you an Exporter / Importer?
+              <strong style="color: red">*</strong></label
+            >
+            <select
+              style="
+                outline: none;
+                border: 1px solid rgb(214, 214, 214);
+                border-radius: 2px;
+              "
+              name="ImpExp"
+              id="ImpExp"
+              class="entity-type-select"
+            >
+              <option value="0" label="Exporter" selected="selected">
+                Exporter
+              </option>
+              <option value="Importer" label="Importer">Importer</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="btns-group">
+          <a class="btn btn-next width-50 ml-auto">Next</a>
+        </div>
+      </form>
+
+      <form action="#" class="form-step">
+        <!-- steps -->
+
+        <div class="form-content">
+          <div>
+            <label>Business Name <strong style="color: red">*</strong></label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Business Name"
+              required
+            />
+          </div>
+          <div>
+            <label
+              >Nature of Business <strong style="color: red">*</strong></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nature of Business"
+              required
+            />
+          </div>
+
+          <div>
+            <label>Business PAN <strong style="color: red">*</strong></label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Business PAN"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              >Upload Business PAN <strong style="color: red">*</strong></label
+            >
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+
+          <div>
+            <label>Business GSTIN <strong style="color: red">*</strong></label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Business GSTIN"
+              required
+            />
+          </div>
+          <div>
+            <label
+              >Upload Business GSTIN
+              <strong style="color: red">*</strong></label
+            >
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+
+          <div>
+            <label
+              >Business CIN (Optional for Partnership and Proprietor)
+            </label>
+            <input
+              type="text"
+              id="business-cin"
+              class="form-control"
+              placeholder="Business CIN"
+              required
+            />
+          </div>
+          <div>
+            <label
+              >Business IEC
+              <!-- <a
+                      href="https://old.icegate.gov.in/EnqMod/"
+                      style="text-decoration: none"
+                      target="_blank"
+                      >(Verification Via)</a
+                    > -->
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Business IEC"
+            />
+          </div>
+
+          <div>
+            <label
+              >Business ICEGATE ID
+              <!-- <a
+                      href="https://old.icegate.gov.in/EnqMod/USER_PANDetails_action"
+                      style="text-decoration: none"
+                      target="_blank"
+                      >(Verification Via)</a
+                    > -->
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Business ICEGATE ID"
+            />
+          </div>
+          <div>
+            <label>Channel Partner ID</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Channel Partner ID"
+            />
+          </div>
+        </div>
+        <div class="btns-group">
+          <a class="btn btn-prev">Previous</a>
+          <a class="btn btn-next">Next</a>
+        </div>
+      </form>
+
+      <form action="#" class="form-step">
+        <!-- steps -->
+
+        <div class="form-content">
+          <div>
+            <label
+              >Bank Account Number <strong style="color: red">*</strong></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Bank Account Number"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              >Confirm Account Number
+              <strong style="color: red">*</strong></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Bank Account Number"
+              required
+            />
+          </div>
+
+          <div>
+            <label>Bank Name <strong style="color: red">*</strong></label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Bank Name"
+              required
+            />
+          </div>
+          <div>
+            <label
+              >Beneficiary Name <strong style="color: red">*</strong></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Beneficiary Name"
+              required
+            />
+          </div>
+          <div>
+            <label>IFSC <strong style="color: red">*</strong></label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="IFSC"
+              required
+            />
+          </div>
+
+          <div>
+            <label>Cancelled Check <strong style="color: red">*</strong></label>
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+        </div>
+        <div class="btns-group">
+          <a class="btn btn-prev">Previous</a>
+          <a class="btn btn-next">Next</a>
+        </div>
+      </form>
+
+      <form action="#" class="form-step">
+        <!-- steps -->
+
+        <div class="form-content">
+          <div>
+            <label style="font-size: 16px">Director # 1 PAN</label>
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+          <div>
+            <label style="font-size: 16px">Director # 1 AADHAR</label>
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+
+          <div>
+            <label style="font-size: 16px">Director # 2 PAN</label>
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+          <div>
+            <label style="font-size: 16px">Director # 2 AADHAR</label>
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+
+          <div>
+            <label style="font-size: 16px">Authorized Signatory # 1 PAN</label>
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+          <div>
+            <label style="font-size: 16px"
+              >Authorized Signatory # 1 AADHAR</label
+            >
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+
+          <div>
+            <label style="font-size: 16px">Business COI</label>
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+          <div>
+            <label style="font-size: 16px"
+              >Promoter/ Authorized Signatory PAN</label
+            >
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+
+          <div>
+            <label style="font-size: 16px"
+              >Promoter/ Authorized Signatory AADHAR</label
+            >
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+
+          <div>
+            <label style="font-size: 16px">Partnership Deed - review </label>
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+
+          <div>
+            <label style="font-size: 16px"
+              >Board Resolution with Signatures of Two (2) Directors / Partners
+            </label>
+            <p style="font-size: 12px">
+              Please upload the Letter of Authorization / Board Resolution.
+              Sample copy attached here. Print the attached format on Letterhead
+              and upload signed copy.
+            </p>
+
+            <div class="drop_box">
+              <header>Select File</header>
+              <input
+                type="file"
+                hidden
+                accept="*"
+                id="fileID"
+                style="display: none"
+                required
+              />
+              <button class="btn_upload">Choose File</button>
+            </div>
+          </div>
+        </div>
+        <div class="btns-group">
+          <a class="btn btn-prev">Previous</a>
+          <a class="btn btn-next">Next</a>
+        </div>
+      </form>
+
+      <form action="#" class="form-step">
+        <!-- steps -->
+
+        <div>
+          <h3>
+            Term of Services
+            <strong style="color: red">*</strong>
+          </h3>
+        </div>
+
+        <div>
+          Click to view our
+          <a href="/privicypolicy.html">Privacy Policy</a>,
+          <a href="#">Escrow Agreement</a>,
+          <a href="termsofservice.html">Terms & Conditions</a>
+          and
+          <a href="#">Disclaimers.</a>
+        </div>
+
+        <div>
+          <h5>We respect our customer's privacy and do not spam them.</h5>
+
+          <label for="consent_one" style="display: block"
+            ><input
+              type="checkbox"
+              name="consent_one"
+              id="consent_one"
+              checked
+            />I authorize Duty Exchange and its representatives to contact me
+            through Call, Email, SMS or WhatsApp. This consent overrides my
+            registration under DNC / NDNC.</label
+          >
+
+          <label for="consent_two" style="display: block"
+            ><input
+              type="checkbox"
+              name="consent_two"
+              id="consent_two"
+              checked
+            />I hereby consent to your Privacy Policy, Escrow Agreement, Terms &
+            Conditions and Disclaimers and agree to avail the facility of
+            Virtual Escrow account being provided by Duty Exchange.
+          </label>
+        </div>
+
+        <div class="btns-group">
+          <a class="btn btn-prev">Previous</a>
+          <a class="btn">Submit</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
